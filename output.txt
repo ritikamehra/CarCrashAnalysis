@@ -1,0 +1,55 @@
+Analysis 1: 
+Number of crashes with male fatalities:  182
+
+Analysis 2: 
+Number of two wheeler crashes:  773
+
+Analysis 3: 
+The state with highest number of crashes with females involved :  Texas
+
+Analysis 4: 
+Top 5th to 15th vehicle makes with highest crashes:  ['NISSAN', 'HONDA', 'GMC', 'HYUNDAI', 'KIA', 'JEEP', 'CHRYSLER', 'MAZDA', 'VOLKSWAGEN', 'PONTIAC', 'LEXUS']
+
+Analysis 5: 
+Top ethnic groups for each vehicle body style: 
++---------------------------------+-----------------+
+|VEH_BODY_STYL_ID                 |PRSN_ETHNICITY_ID|
++---------------------------------+-----------------+
+|AMBULANCE                        |WHITE            |
+|BUS                              |BLACK            |
+|FARM EQUIPMENT                   |WHITE            |
+|FIRE TRUCK                       |WHITE            |
+|MOTORCYCLE                       |WHITE            |
+|NEV-NEIGHBORHOOD ELECTRIC VEHICLE|WHITE            |
+|OTHER  (EXPLAIN IN NARRATIVE)    |WHITE            |
+|PASSENGER CAR, 2-DOOR            |WHITE            |
+|PASSENGER CAR, 4-DOOR            |WHITE            |
+|PICKUP                           |WHITE            |
+|POLICE CAR/TRUCK                 |WHITE            |
+|POLICE MOTORCYCLE                |WHITE            |
+|SPORT UTILITY VEHICLE            |WHITE            |
+|TRUCK                            |WHITE            |
+|TRUCK TRACTOR                    |WHITE            |
+|VAN                              |WHITE            |
+|YELLOW SCHOOL BUS                |BLACK            |
++---------------------------------+-----------------+
+
+
+Analysis 6: 
+Top 5 Zip Codes with highest number crashes with alcohols as the contributing factor:  ['76010', '78521', '78130', '75067', '78542']
+
+Analysis 7: 
+Count of distinct crash ids where No Damaged Property was observed, Damage Level (VEH_DMAG_SCL~) is above 4 and car avails Insurance:  8
+
+Analysis 8: 
+Top 5 Vehicle Makes where drivers are charged with speeding related offences, has licensed Drivers, used top 10 used vehicle colours and has car licensed with the Top 25 states with highest number of offences: 
++-----------+-----+
+|VEH_MAKE_ID|COUNT|
++-----------+-----+
+|       FORD| 3228|
+|  CHEVROLET| 2916|
+|     TOYOTA| 1752|
+|      DODGE| 1607|
+|      HONDA| 1164|
++-----------+-----+
+
