@@ -25,9 +25,10 @@ Develop a spark application that analyzes the given data on the following points
 1. config.json file has to be updated for any changes in the source or output paths. Any changes in the paths will impact the hadoop fs commands mentioned in point 7 and 9.
 
 source_paths: path of input csv files
+
 output_paths: path of output csv files
 
-3. Create EMR Cluster with Hadoop and Spark, 1 m4x.large Master Node with 400 GiB EBS Storage and 20 GiB root device volume size.
+2. Create EMR Cluster with Hadoop and Spark, 1 m4x.large Master Node with 400 GiB EBS Storage and 20 GiB root device volume size.
 
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/0f9f2d08-0dec-411c-ac9b-81607159a17b)
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/8dc2044e-320c-4bd8-960d-efc74f582fec)
