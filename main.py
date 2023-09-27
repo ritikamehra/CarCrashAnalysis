@@ -98,7 +98,7 @@ class CarCrashAnalysis:
 
         df = self.units_dist.withColumn('TOT_INJRY_DEATH', self.units_dist.TOT_INJRY_CNT + self.units_dist.DEATH_CNT)\
                                         .select('VEH_MAKE_ID','TOT_INJRY_DEATH')\
-                                        .where(~col('VEH_MAKE_ID').isin('NA'))\
+                                        .where(~col('VEH_MAKE_ID').isin('NA','REQUIRES INTERPRETATION','OTHER (EXPLAIN IN NARRATIVE)'))\
                                         .groupBy(self.units_dist.VEH_MAKE_ID)\
                                         .agg(sum(col('TOT_INJRY_DEATH')).alias('TOT_INJRY_DEATH'))\
                                         .orderBy(col('TOT_INJRY_DEATH').desc())\
@@ -117,8 +117,8 @@ class CarCrashAnalysis:
         '''
         window = Window.partitionBy('VEH_BODY_STYL_ID').orderBy(col('COUNT').desc())
         
-        df = self.pp_unit.where(~self.pp_unit['VEH_BODY_STYL_ID'].isin(['NA', 'UNKNOWN', 'NOT REPORTED']))\
-        .where(~self.pp_unit['PRSN_ETHNICITY_ID'].isin(['NA', 'UNKNOWN']))\
+        df = self.pp_unit.where(~self.pp_unit['VEH_BODY_STYL_ID'].isin(['NA', 'UNKNOWN', 'NOT REPORTED','OTHER  (EXPLAIN IN NARRATIVE)']))\
+        .where(~self.pp_unit['PRSN_ETHNICITY_ID'].isin(['NA', 'UNKNOWN','OTHER']))\
         .groupBy('VEH_BODY_STYL_ID','PRSN_ETHNICITY_ID').agg(count('PRSN_ETHNICITY_ID').alias('COUNT'))\
         .withColumn('RANK', dense_rank().over(window))\
         .where(col('RANK') == 1).select('VEH_BODY_STYL_ID', 'PRSN_ETHNICITY_ID')\
@@ -135,7 +135,7 @@ class CarCrashAnalysis:
             output_filepath : filpath of output
         '''
         zipcodeDf = self.pp_unit.where(col('CONTRIB_FACTR_1_ID').contains('ALCOHOL') | col('CONTRIB_FACTR_2_ID').contains('ALCOHOL') |col('CONTRIB_FACTR_P1_ID').contains('ALCOHOL'))\
-        .where(~col('DRVR_ZIP').isin('NONE'))\
+        .where(~col('DRVR_ZIP').isin('NONE','UNKNOWN'))\
         .select(self.units.CRASH_ID,'DRVR_ZIP')
         df = zipcodeDf.groupBy(col('DRVR_ZIP'))\
         .agg(count(col('CRASH_ID')).alias('CRASH_COUNT'))\
