@@ -28,11 +28,11 @@ source_paths: path of input csv files
 
 output_paths: path of output csv files
 
-2. Create EMR Cluster with Hadoop and Spark, 1 m4x.large Master Node with 400 GiB EBS Storage and 20 GiB root device volume size.
+2. Create EMR Cluster (5.30.1) with Hadoop(2.8.5) and Spark(2.4.5), 1 m4x.large Master Node with 40 GiB EBS Storage. 
 
-![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/0f9f2d08-0dec-411c-ac9b-81607159a17b)
-![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/8dc2044e-320c-4bd8-960d-efc74f582fec)
-![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/96d0b19f-6d8c-41e2-93e5-5847510d70f0)
+![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/f387dff2-de01-4d28-900f-8c07f66b9341)
+![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/ce40cb50-a370-40e6-8c53-fb6d8d994b95)
+
 
 3. Once the Cluster is running, copy the Master DNS and login to WinSCP using key.
 
