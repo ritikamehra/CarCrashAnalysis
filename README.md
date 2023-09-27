@@ -22,7 +22,7 @@ Develop a spark application that perform the below analysis on given data and st
 - Output path is mentioned correctly in config.json and outputs will be written to Output folder in HDFS. 
 
 ## Setup:
-1. config.json file has to be updated for any changes in the source or output paths. Any changes in the paths will impact the hadoop fs commands mentioned in point 7 and 9.
+1. config.json file has to be updated for any changes in the source or output paths. Any changes in the paths will impact the hadoop fs commands mentioned in point 5 and 7.
 
 source_paths: path of input csv files
 
@@ -44,15 +44,15 @@ output_paths: path of output csv files
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/ca1c5b61-f7d6-40c6-88ef-92b879a1c7ed)
 
 
-6. Login to EMR cluster and run the following command to place Data files in HDFS. Any changes in config file for source_paths key will require change to 'Data/'.
+5. Login to EMR cluster and run the following command to place Data files in HDFS. Any changes in config file for source_paths key will require change to 'Data/'.
 
 hadoop fs -copyFromLocal Data/ /user/hadoop/
 
-7. Run the following spark command to run the application and store the console output in a file.
+6. Run the following spark command to run the application and store the console output in a file.
 
 spark-submit --py-files utilities/utility.py --files config.json main.py > output.txt
 
-8. Run the following command to copy the output to local system which will be visible in WinSCP. Any changes in config file for output_paths key will require change to 'Output/'.
+7. Run the following command to copy the output to local system which will be visible in WinSCP. Any changes in config file for output_paths key will require change to 'Output/'.
 
 hadoop fs -copyToLocal Output/   
 
