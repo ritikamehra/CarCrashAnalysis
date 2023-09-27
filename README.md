@@ -18,9 +18,16 @@ Develop a spark application that analyzes the given data on the following points
 
 ## Assumption:
 - AWS EMR has been used for implementation.
+- Input data is available in a folder called Data and the path is mentioned correctly in config.json.
+- Output path is mentioned correctly in config.json and outputs will be written to Output folder in HDFS. 
 
 ## Setup:
-1. Create EMR Cluster with Hadoop and Spark, 1 m4x.large Master Node with 400 GiB EBS Storage and 20 GiB root device volume size.
+1. config.json file has to be updated for any changes in the source or output paths. Any changes in the paths will impact the hadoop fs commands mentioned in point 7 and 9.
+
+source_paths: path of input csv files
+output_paths: path of output csv files
+
+3. Create EMR Cluster with Hadoop and Spark, 1 m4x.large Master Node with 400 GiB EBS Storage and 20 GiB root device volume size.
 
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/0f9f2d08-0dec-411c-ac9b-81607159a17b)
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/8dc2044e-320c-4bd8-960d-efc74f582fec)
@@ -36,7 +43,7 @@ Develop a spark application that analyzes the given data on the following points
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/ca1c5b61-f7d6-40c6-88ef-92b879a1c7ed)
 
 
-6. Login to EMR cluster using putty and run the following command to place Data files in HDFS.
+6. Login to EMR cluster using putty and run the following command to place Data files in HDFS. Any changes in config file for source_paths key will require change to 'Data/'.
 
 hadoop fs -copyFromLocal Data/ /user/hadoop/
 
@@ -44,7 +51,7 @@ hadoop fs -copyFromLocal Data/ /user/hadoop/
 
 spark-submit --py-files utilities/utility.py --files config.json main.py > output.txt
 
-8. Run the following command to copy the output to local system which will be visible in WinSCP.
+8. Run the following command to copy the output to local system which will be visible in WinSCP. Any changes in config file for output_paths key will require change to 'Output/'.
 
 hadoop fs -copyToLocal Output/   
 
