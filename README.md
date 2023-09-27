@@ -1,4 +1,4 @@
-# CarCrashAnalysis
+# CrashAnalysis
 ## Goal: 
 Develop a spark application that analyzes the given data on the following points: 
 1. Analytics 1: Find the number of crashes (accidents) in which number of persons killed are male?
