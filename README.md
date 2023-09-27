@@ -1,6 +1,6 @@
 # CrashAnalysis
 ## Goal: 
-Develop a spark application that analyzes the given data on the following points: 
+Develop a spark application that perform the below analysis on given data and store the results for each analysis: 
 1. Analytics 1: Find the number of crashes (accidents) in which number of persons killed are male?
 2. Analysis 2: How many two wheelers are booked for crashes?
 3. Analysis 3: Which state has highest number of accidents in which females are involved?
@@ -34,7 +34,7 @@ output_paths: path of output csv files
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/ce40cb50-a370-40e6-8c53-fb6d8d994b95)
 
 
-3. Once the Cluster is running, copy the Master DNS and login to WinSCP using key.
+3. Once the Cluster is running, copy the Master DNS and login to WinSCP using EC2 Key pair.
 
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/f481c469-3deb-47d4-8417-d946e9850747)
 
@@ -44,7 +44,7 @@ output_paths: path of output csv files
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/ca1c5b61-f7d6-40c6-88ef-92b879a1c7ed)
 
 
-6. Login to EMR cluster using putty and run the following command to place Data files in HDFS. Any changes in config file for source_paths key will require change to 'Data/'.
+6. Login to EMR cluster and run the following command to place Data files in HDFS. Any changes in config file for source_paths key will require change to 'Data/'.
 
 hadoop fs -copyFromLocal Data/ /user/hadoop/
 
@@ -63,7 +63,8 @@ Files should be visible in WinSCP as below.
 
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/bfd5f619-154b-4cc2-93ad-fd5d9e4b4dd8)
 
-
 Output files can now be copied to local system.
 
+Refer the link below for details on connecting to EMR cluster and creating .ppk or .pem file.
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-ssh.html
 
