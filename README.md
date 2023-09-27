@@ -37,12 +37,15 @@ Develop a spark application that analyzes the given data on the following points
 
 
 6. Login to EMR cluster using putty and run the following command to place Data files in HDFS.
+
 hadoop fs -copyFromLocal Data/ /user/hadoop/
 
 7. Run the following spark command to run the application and store the console output in a file.
+
 spark-submit --py-files utilities/utility.py --files config.json main.py > output.txt
 
 8. Run the following command to copy the output to local system which will be visible in WinSCP.
+
 hadoop fs -copyToLocal Output/   
 
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/9af29e4d-0cb4-4507-8fa7-28ef98370c6e)
