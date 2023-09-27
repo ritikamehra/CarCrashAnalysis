@@ -28,7 +28,7 @@ source_paths: path of input csv files
 
 output_paths: path of output csv files
 
-2. Create EMR Cluster (5.30.1) with Hadoop(2.8.5) and Spark(2.4.5), 1 m4x.large Master Node with 40 GiB EBS Storage. 
+2. Create EMR Cluster (5.30.1) with Hadoop(2.8.5) and Spark(2.4.5), 1 m4.xlarge Master Node with 40 GiB EBS Storage. 
 
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/f387dff2-de01-4d28-900f-8c07f66b9341)
 ![image](https://github.com/ritikamehra/CarCrashAnalysis/assets/54076372/ce40cb50-a370-40e6-8c53-fb6d8d994b95)
