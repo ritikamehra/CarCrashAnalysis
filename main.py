@@ -1,4 +1,4 @@
-''' Importing system dependencies '''
+# Importing system dependencies 
 from pyspark.sql import SparkSession, Window
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
@@ -8,7 +8,7 @@ from utilities import utility
 class CarCrashAnalysis:
 
     def __init__(self):
-        ''' This function is used to initialize spark session and input and output path variables'''
+        ''' This function is used to initialize spark session '''
         self.spark = SparkSession\
             .builder \
             .master("local[*]") \
@@ -22,7 +22,7 @@ class CarCrashAnalysis:
     def load_df(self, config_filepath):
       ''' This function is used to load data to dataframes, remove duplicates and store common joins  
       Parameter:
-            config_filepath : filpath of configfile
+            config_filepath : filepath of configfile
       '''
 
       self.source_filepath = utility.extract_config(config_filepath).get('source_paths')
@@ -171,7 +171,8 @@ class CarCrashAnalysis:
         ''' This function is used to determine the Top 5 Vehicle Makes where drivers are charged with speeding related offences has licensed Drivers,
         used top 10 used vehicle colours and has car licensed with the Top 25 states with highest number of offences (to be deduced from the data)
         Parameter:
-            output_filepath : filpath of output        '''
+            output_filepath : filpath of output        
+        '''
                        
         top_ten_col = [rec[0] for rec in self.units_dist.groupBy(self.units_dist.VEH_COLOR_ID).agg(count('*').alias('COUNT')).orderBy(col('COUNT').desc()).limit(5).collect()]
         top_25_state = [rec[0] for rec in self.units_dist.groupBy(self.units_dist.VEH_LIC_STATE_ID).agg(count('*').alias('COUNT')).orderBy(col('COUNT').desc()).limit(25).collect()]
